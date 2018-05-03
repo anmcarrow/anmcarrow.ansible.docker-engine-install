@@ -12,7 +12,7 @@
 
     - name: Add Docker CE Debian repo
       apt_repository:
-        repo: "{{ dockerce_debian_repo_uri }}"
+        repo: "deb {{ dockerce_debian_repo_uri }}"
         state: present
 
     - name: Install required packages and useful tools
