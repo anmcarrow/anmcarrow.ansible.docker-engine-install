@@ -2,30 +2,36 @@
 
 debian_release: stretch
 
-    bad_pkgs:
-      - docker
-      - docker-common
-      - docker-selinux
-      - docker-engine
-      - docker.io
+bad_pkgs:
+  - docker
+  - docker-common
+  - docker-selinux
+  - docker-engine
+  - docker.io
 
-    required_centos_pkgs:
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
-    dockerce_centos_pkgs:
-      - docker-ce
-    docker_centos_repolist_uri: "https://download.docker.com/linux/centos/docker-ce.repo"
-    docker_centos_repo_gpg: "https://download.docker.com/linux/centos/gpg"
+required_centos_pkgs:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
 
-    required_debian_pkgs:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg2
-      - software-properties-common
-      - lvm2
-    dockerce_debian_pkgs:
-      - docker-ce
-    dockerce_debian_repo_uri: "https://download.docker.com/linux/debian {{ debian_release }} stable"
-    dockerce_debian_repo_gpg: "https://download.docker.com/linux/debian/gpg"
+dockerce_centos_pkgs:
+  - docker-ce
+
+docker_centos_repolist_uri: "https://download.docker.com/linux/centos/docker-ce.repo"
+
+docker_centos_repo_gpg: "https://download.docker.com/linux/centos/gpg"
+
+required_debian_pkgs:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg2
+  - software-properties-common
+  - lvm2
+
+dockerce_debian_pkgs:
+  - docker-ce
+
+dockerce_debian_repo_uri: "https://download.docker.com/linux/debian {{ debian_release }} stable"
+
+dockerce_debian_repo_gpg: "https://download.docker.com/linux/debian/gpg"
