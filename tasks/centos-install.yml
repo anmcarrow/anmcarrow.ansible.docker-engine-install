@@ -1,0 +1,25 @@
+---
+
+    - name: Remove unapropriate packages
+      yum: pkg={{ item }} state=absent update_cache=true
+      with_items:
+        - "{{ bad_pkgs }}"
+
+    - name: Add Docker CE repo list
+      get_url:
+        url: "{{ docker_centos_repolist_uri }}"
+        dest: /etc/yum.repos.d/docker-ce.repo
+        mode: 0440
+
+    - name: Install required packages and useful tools
+      yum: pkg={{ item }} state=installed update_cache=true
+      with_items:
+        - "{{ required_centos_pkgs }}"
+
+    - name: Install Docker CE packages
+      yum: pkg={{ item }} state=latest update_cache=true
+      with_items:
+        - "{{ dockerce_centos_pkgs }}"
+
+    - name: Start Docker service
+      service: name="docker" state="started"

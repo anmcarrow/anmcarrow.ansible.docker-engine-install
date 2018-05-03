@@ -1,0 +1,32 @@
+---
+
+    - name: Remove unapropriate packages
+      apt: pkg={{ item }} state=absent update_cache=true
+      with_items:
+        - "{{ bad_pkgs }}"
+
+    - name: Add Docker CE repo key
+      apt_key:
+        url: "{{ dockerce_debian_repo_gpg }}"
+        state: present
+
+    - name: Add Docker CE Debian repo
+      apt_repository:
+        repo: "{{ dockerce_debian_repo_uri }}"
+        state: present
+
+    - name: Install required packages and useful tools
+      apt: pkg={{ item }} state=installed update_cache=true
+      with_items:
+        - "{{ required_debian_pkgs }}"
+
+    - name: Install Docker CE packages
+      apt: pkg={{ item }} state=latest update_cache=true
+      with_items:
+        - "{{ dockerce_debian_pkgs }}"
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
