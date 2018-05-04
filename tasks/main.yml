@@ -5,3 +5,6 @@
     - include: debian-install.yml
       when: ansible_distribution == 'Debian'
       tags: docker
+
+    - include: pip-install.yml
+      tags: docker
