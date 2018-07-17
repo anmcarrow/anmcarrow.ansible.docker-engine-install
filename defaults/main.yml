@@ -34,13 +34,31 @@ required_debian_pkgs:
   - lvm2
   - python-pip
 
+required_ubuntu_pkgs:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg2
+#  - software-properties-common
+  - lvm2
+  - python-pip
+
 dockerce_debian_pkgs:
   - docker-ce
 
-dockerce_debian_repo_uri: "https://download.docker.com/linux/debian {{ debian_release }} stable"
+dockerce_ubuntu_pkgs:
+  - docker-ce
 
+dockerce_debian_repo_uri: "https://download.docker.com/linux/debian {{ debian_release }} stable"
 dockerce_debian_repo_gpg: "https://download.docker.com/linux/debian/gpg"
 
+dockerce_ubuntu_repo_uri: "https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+dockerce_ubuntu_repo_gpg: "https://download.docker.com/linux/ubuntu/gpg"
 
 required_pip_pkgs:
   - docker-py
+  - docker-compose
+
+compose_release: "1.22.0-rc2"
+compose_url: "https://github.com/docker/compose/releases/download/{{ compose_release }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+compose_bin: /usr/local/bin/docker-compose

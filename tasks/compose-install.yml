@@ -1,0 +1,7 @@
+---
+
+- name: Install Docker Compose tool
+  get_url:
+    url: "{{ compose_url }}"
+    dest: "{{ compose_bin }}"
+    mode: 0755

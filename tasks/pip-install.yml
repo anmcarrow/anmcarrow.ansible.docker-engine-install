@@ -1,6 +1,6 @@
 ---
 
-- name: Instasll required Python-Pip packages
+- name: Install required Python-Pip packages
   pip: name="{{ item }}" state=present
   with_items: "{{ required_pip_pkgs }}"
-  tags: docker
+  tags: docker,pip
