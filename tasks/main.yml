@@ -15,3 +15,6 @@
 
     - import_tasks: compose-install.yml
       tags: docker,compose
+
+    - import_tasks: crond-configure.yml
+      tags: docker,crond

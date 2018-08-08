@@ -5,7 +5,6 @@ debian_release: stretch
 bad_pkgs:
   - docker
   - docker-common
-  - docker-selinux
   - docker-engine
   - docker.io
   - docker-containerd

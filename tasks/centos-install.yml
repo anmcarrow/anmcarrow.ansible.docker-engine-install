@@ -1,6 +1,6 @@
 ---
 
-    - name: Remove unapropriate packages
+    - name: Remove unapropriate packages for CentOS
       yum: pkg={{ item }} state=absent update_cache=true
       with_items:
         - "{{ bad_pkgs }}"

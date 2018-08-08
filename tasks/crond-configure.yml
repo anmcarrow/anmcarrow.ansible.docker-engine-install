@@ -1,0 +1,7 @@
+---
+
+- name: Deploy crond configuration for the regular autoclean garbage
+  copy:
+    src: docker-prune.crond
+    dest: /etc/cron.d/docker-prune
+  tags: docker,crond
