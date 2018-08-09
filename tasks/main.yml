@@ -1,3 +1,7 @@
+    - import_tasks: centos-repos.yml
+      when: ansible_distribution == 'CentOS'
+      tags: docker
+
     - import_tasks: centos-install.yml
       when: ansible_distribution == 'CentOS'
       tags: docker
