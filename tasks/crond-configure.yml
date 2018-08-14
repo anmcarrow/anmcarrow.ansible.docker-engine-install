@@ -1,5 +1,11 @@
 ---
 
+- name: Create /etc/cron.d directory
+  file:
+    state: directory
+    path: /etc/cron.d
+  tags: docker,crond
+
 - name: Deploy crond configuration for the regular autoclean garbage
   copy:
     src: docker-prune.crond
