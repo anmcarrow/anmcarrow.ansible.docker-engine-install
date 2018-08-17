@@ -23,4 +23,7 @@
         - "{{ dockerce_centos_pkgs }}"
 
     - name: Start Docker service
-      service: name="docker" state="started"
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
