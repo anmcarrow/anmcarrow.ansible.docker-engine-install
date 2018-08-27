@@ -21,7 +21,7 @@
         - "{{ required_debian_pkgs }}"
 
     - name: Install Docker CE packages
-      apt: pkg={{ item }} state=latest update_cache=true
+      apt: pkg={{ item }} state=installed update_cache=true
       with_items:
         - "{{ dockerce_debian_pkgs }}"
 

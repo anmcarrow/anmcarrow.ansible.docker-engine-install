@@ -18,7 +18,7 @@
         validate_certs: no
 
     - name: Install Docker CE packages
-      yum: pkg={{ item }} state=latest update_cache=true
+      yum: pkg={{ item }} state=installed update_cache=true
       with_items:
         - "{{ dockerce_centos_pkgs }}"
 
