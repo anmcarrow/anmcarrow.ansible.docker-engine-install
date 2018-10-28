@@ -1,9 +1,15 @@
 ---
 
     - name: Remove unapropriate packages
-      apt: pkg={{ item }} state=absent update_cache=true
-      with_items:
-        - "{{ bad_pkgs }}"
+      apt:
+        pkg: "{{ bad_pkgs }}"
+        state: absent
+
+    - name: Install required packages and useful tools
+      apt:
+        pkg: "{{ required_debian_pkgs }}"
+        state: latest
+        update_cache: true
 
     - name: Add Docker CE repo key
       apt_key:
@@ -15,13 +21,8 @@
         repo: "deb {{ dockerce_debian_repo_uri }}"
         state: present
 
-    - name: Install required packages and useful tools
-      apt: pkg={{ item }} state=installed update_cache=true
-      with_items:
-        - "{{ required_debian_pkgs }}"
-
     - name: Install Docker CE packages
-      apt: pkg={{ item }} state=installed update_cache=true
+      apt: pkg={{ item }} state=latest update_cache=true
       with_items:
         - "{{ dockerce_debian_pkgs }}"
 

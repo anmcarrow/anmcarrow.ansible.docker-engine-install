@@ -1,14 +1,15 @@
 ---
 
     - name: Remove unapropriate packages for CentOS
-      yum: pkg={{ item }} state=absent update_cache=true
-      with_items:
-        - "{{ bad_pkgs }}"
+      yum:
+        pkg:: "{{ bad_pkgs }}"
+        state: absent
 
     - name: Install required packages and useful tools
-      yum: pkg={{ item }} state=installed update_cache=true
-      with_items:
-        - "{{ required_centos_pkgs }}"
+      yum:
+        pkg: "{{ required_centos_pkgs }}"
+        state: installed
+        update_cache: true
 
     - name: Add Docker CE repo list
       get_url:
