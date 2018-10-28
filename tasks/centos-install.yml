@@ -2,7 +2,7 @@
 
     - name: Remove inapropriate packages for CentOS
       yum:
-        name:: "{{ bad_pkgs }}"
+        name: "{{ bad_pkgs }}"
         state: absent
 
     - name: Install required packages and useful tools
