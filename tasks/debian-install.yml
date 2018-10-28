@@ -22,9 +22,10 @@
         state: present
 
     - name: Install Docker CE packages
-      apt: pkg={{ item }} state=latest update_cache=true
-      with_items:
-        - "{{ dockerce_debian_pkgs }}"
+      apt:
+        name: "{{ dockerce_debian_pkgs }}"
+        state: present
+        update_cache: true
 
     - name: Start and enable Docker service
       service:

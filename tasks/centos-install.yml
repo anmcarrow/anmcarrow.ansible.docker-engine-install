@@ -19,9 +19,10 @@
         validate_certs: no
 
     - name: Install Docker CE packages
-      yum: pkg={{ item }} state=installed update_cache=true
-      with_items:
-        - "{{ dockerce_centos_pkgs }}"
+      yum:
+        name: "{{ dockerce_centos_pkgs }}"
+        state: present
+        update_cache: true
 
     - name: Start Docker service
       systemd:
