@@ -1,6 +1,6 @@
 ---
 
-    - name: Remove unapropriate packages
+    - name: Remove inappropriate packages
       apt:
         name: "{{ bad_pkgs }}"
         state: absent

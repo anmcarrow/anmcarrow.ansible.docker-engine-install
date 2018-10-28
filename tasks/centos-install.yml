@@ -1,6 +1,6 @@
 ---
 
-    - name: Remove inapropriate packages for CentOS
+    - name: Remove inappropriate packages for CentOS
       yum:
         name: "{{ bad_pkgs }}"
         state: absent
