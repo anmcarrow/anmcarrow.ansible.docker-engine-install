@@ -8,7 +8,7 @@
     - name: Install required packages and useful tools
       yum:
         name: "{{ required_centos_pkgs }}"
-        state: installed
+        state: present
         update_cache: true
 
     - name: Add Docker CE repo list
