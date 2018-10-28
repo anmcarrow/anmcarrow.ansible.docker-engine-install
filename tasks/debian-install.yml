@@ -2,12 +2,12 @@
 
     - name: Remove unapropriate packages
       apt:
-        pkg: "{{ bad_pkgs }}"
+        name: "{{ bad_pkgs }}"
         state: absent
 
     - name: Install required packages and useful tools
       apt:
-        pkg: "{{ required_debian_pkgs }}"
+        name: "{{ required_debian_pkgs }}"
         state: latest
         update_cache: true
 

@@ -2,12 +2,12 @@
 
     - name: Remove unapropriate packages for CentOS
       yum:
-        pkg:: "{{ bad_pkgs }}"
+        name:: "{{ bad_pkgs }}"
         state: absent
 
     - name: Install required packages and useful tools
       yum:
-        pkg: "{{ required_centos_pkgs }}"
+        name: "{{ required_centos_pkgs }}"
         state: installed
         update_cache: true
 
